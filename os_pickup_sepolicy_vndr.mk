@@ -12,6 +12,8 @@ ifeq ($(TARGET_BOARD_PLATFORM)$(TARGET_BOARD_SUFFIX),bengal_515)
 else
     include device/qcom/sepolicy_vndr/legacy-um/SEPolicy.mk
 endif
+else ifneq ($(filter $(UM_6_1_FAMILY),$(TARGET_BOARD_PLATFORM)),)
+     include device/qcom/sepolicy_vndr/sm8650/SEPolicy.mk
 endif
 
 -include device/droidx/sepolicy/qcom/sepolicy.mk
