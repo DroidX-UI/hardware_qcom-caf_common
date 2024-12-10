@@ -94,6 +94,10 @@ SOONG_CONFIG_qtidisplay_target_uses_ycrcb_camera_preview ?= false
 SOONG_CONFIG_qtidisplay_target_uses_ycrcb_venus_camera_preview ?= false
 SOONG_CONFIG_qtidisplay_target_needs_raw10_buffer_fix ?= false
 
+ifeq ($(TARGET_USES_FOD_ZPOS),true)
+    SOONG_CONFIG_qtidisplay_udfps := true
+endif
+
 # For libgrallocutils features
 ifeq ($(TARGET_NO_RAW10_CUSTOM_FORMAT),true)
     SOONG_CONFIG_qtidisplay_target_no_raw10_custom_format := true
