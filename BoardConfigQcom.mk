@@ -174,7 +174,7 @@ ifneq ($(filter $(UM_4_9_FAMILY) $(UM_4_14_FAMILY) $(UM_4_19_KONA_FAMILY) $(UM_4
 endif
 
 # Enable Gralloc4 on UM platforms that support it
-ifneq (,$(filter 5.4 5.10 5.15, $(TARGET_KERNEL_VERSION)))
+ifneq (,$(filter 4.14 4.19 5.4 5.10 5.15, $(TARGET_KERNEL_VERSION)))
     SOONG_CONFIG_qtidisplay_gralloc4 := true
 endif
 
