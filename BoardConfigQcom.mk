@@ -72,7 +72,8 @@ SOONG_CONFIG_qtidisplay += \
     target_uses_unaligned_ycrcb \
     target_uses_ycrcb_camera_encode \
     target_uses_ycrcb_camera_preview \
-    target_uses_ycrcb_venus_camera_preview
+    target_uses_ycrcb_venus_camera_preview \
+    target_needs_raw10_buffer_fix
 
 # Set default values for qtidisplay config
 SOONG_CONFIG_qtidisplay_drmpp ?= false
@@ -91,6 +92,7 @@ SOONG_CONFIG_qtidisplay_target_uses_unaligned_ycrcb ?= false
 SOONG_CONFIG_qtidisplay_target_uses_ycrcb_camera_encode ?= false
 SOONG_CONFIG_qtidisplay_target_uses_ycrcb_camera_preview ?= false
 SOONG_CONFIG_qtidisplay_target_uses_ycrcb_venus_camera_preview ?= false
+SOONG_CONFIG_qtidisplay_target_needs_raw10_buffer_fix ?= false
 
 # For libgrallocutils features
 ifeq ($(TARGET_NO_RAW10_CUSTOM_FORMAT),true)
@@ -113,6 +115,10 @@ ifeq ($(TARGET_USES_YCRCB_CAMERA_PREVIEW),true)
     SOONG_CONFIG_qtidisplay_target_uses_ycrcb_camera_preview := true
 else ifeq ($(TARGET_USES_YCRCB_VENUS_CAMERA_PREVIEW),true)
     SOONG_CONFIG_qtidisplay_target_uses_ycrcb_venus_camera_preview := true
+endif
+
+ifeq ($(TARGET_NEEDS_RAW10_BUFFER_FIX),true)
+    SOONG_CONFIG_qtidisplay_target_needs_raw10_buffer_fix := true
 endif
 
 # Add rmnetctl to soong config namespaces
